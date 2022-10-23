@@ -1,9 +1,17 @@
 const btn = document.querySelector('[data-form-btn]'); //data atributes
 const createTask = (e)=>{
     e.preventDefault();
-    const input = document.querySelector('[data-input-task]')
-    console.log(input.value);
+    const input = document.querySelector('[data-input-task]');
+    const value = input.value;
+    const list = document.querySelector('[data-list]')
+    const task = document.createElement('li');
+    task.classList.add('card');
     input.value='';
+    const content = `<div><i class="far fa-check-square icon"></i>
+        <span class="task">${value}</span></div>
+        <i class="fas fa-trash-alt trashIcon icon"></i>`;
+        task.innerHTML = content
+    list.appendChild(task)
 }
 
 btn.addEventListener('click', createTask)
