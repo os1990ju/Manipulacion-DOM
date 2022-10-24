@@ -1,4 +1,5 @@
-(()=>{
+import { checkComplete } from "./components/checkComplete.js";
+import deleteIcon from "./components/deleteIcon.js";
 const btn = document.querySelector('[data-form-btn]'); //data atributes
 
 const createTask = (e)=>{
@@ -18,22 +19,12 @@ const createTask = (e)=>{
     taskContent.appendChild(checkComplete());
     taskContent.appendChild(titleTask)
     task.appendChild(taskContent)
-    list.appendChild(task)  
-}
-//creacion de check item
-const checkComplete = ()=>{
-    const i = document.createElement('i');
-    i.classList.add('far', 'fa-check-square', 'icon');
-    i.addEventListener('click',completeTask)
-    return i;
+    task.appendChild(deleteIcon());  
+    list.appendChild(task)
+    
 }
 
-const completeTask = (e)=>{
-    const element = e.target;
-    element.classList.toggle('fas');
-    element.classList.toggle('completeIcon');
-    element.classList.toggle('far');
-}
+
 
 btn.addEventListener('click', createTask)
-})() //IIEF funcion auto invocada para evitar que accedan a funciones
+// (()=>{})()IIEF funcion auto invocada para evitar que accedan a funciones
